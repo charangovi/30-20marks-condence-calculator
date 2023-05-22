@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Score Conversion</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 300px;
+      background-color: #eaeaea;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+    }
+
+    .container h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .input-label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .result {
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .convert-btn {
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #ffcd00;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .convert-btn:hover {
+      background-color: #ffa500;
+    }
+
+    .convert-btn:active {
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Score Conversion</h2>
+    <div>
+      <label class="input-label">Score out of 30:</label>
+      <input type="number" id="scoreOutOf30" class="input-field" step="0.01" min="0" required>
+    </div>
+    <button onclick="convertScore()" class="convert-btn">Convert</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function convertScore() {
+      const scoreOutOf30 = parseFloat(document.getElementById('scoreOutOf30').value);
+
+      const scoreOutOf20 = (scoreOutOf30 / 30) * 20;
+      const result = `Score out of 20: ${scoreOutOf20.toFixed(2)}`;
+
+      document.getElementById('result').textContent = result;
+    }
+  </script>
+</body>
+</html>
